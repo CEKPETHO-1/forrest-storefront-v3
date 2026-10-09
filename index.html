@@ -9,6 +9,8 @@
     ["wheel","touchstart","keydown","mousedown"].forEach(function(e){window.addEventListener(e,function(){stop=true},{passive:true});});
     function go(){
       var h=decodeURIComponent((location.hash||"").slice(1));
+      var al={B7:"B6",B9:"B8",M1:"A6",M2:"A6",M3:"A6",M4:"A6",M1M4:"A6"};
+      if(al[h]) h=al[h];
       if(!h) return;
       stop=false;
       var n=0, iv=setInterval(function(){
