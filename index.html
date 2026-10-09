@@ -2,7 +2,23 @@
 <html>
 <head>
   <meta name="robots" content="noindex,nofollow">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <script>
+  (function(){
+    function go(){
+      var h=decodeURIComponent((location.hash||"").slice(1));
+      if(!h) return;
+      var n=0, iv=setInterval(function(){
+        var el=document.getElementById(h);
+        if(el){ clearInterval(iv); setTimeout(function(){ el.scrollIntoView({block:"start"}); },250); }
+        else if(++n>150){ clearInterval(iv); }
+      },100);
+    }
+    window.addEventListener("load", go);
+    window.addEventListener("hashchange", go);
+  })();
+  </script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <title>Bundled Page</title>
   <style>
